@@ -442,6 +442,11 @@ impl Session {
     pub fn set_expect_timeout(&mut self, expect_timeout: Option<Duration>) {
         self.expect_timeout = expect_timeout;
     }
+ 
+    /// Borrow mutably the session's stream.
+    pub fn stream_mut(&mut self) -> &mut Stream {
+        &mut self.stream
+    }
 }
 
 #[cfg(not(feature = "async"))]
